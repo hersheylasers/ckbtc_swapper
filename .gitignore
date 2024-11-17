@@ -1,0 +1,20 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+Cargo.lock
+
+# DFX artifacts
+.dfx/
+canister_ids.json
+
+# Node modules
+node_modules/
+dist/
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local
