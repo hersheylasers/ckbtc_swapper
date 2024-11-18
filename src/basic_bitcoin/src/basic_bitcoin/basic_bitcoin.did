@@ -1,27 +1,3 @@
-type Network = variant {
-    Bitcoin;
-    CkBTC;
-};
-
-type ConversionStatus = variant {
-    Pending;
-    Complete;
-    Failed : text;
-};
-
-type ConversionRecord = record {
-    timestamp : nat64;
-    from_network : Network;
-    to_network : Network;
-    amount : nat64;
-    status : ConversionStatus;
-};
-
-type Balances = record {
-    btc : nat64;
-    ckbtc : nat64;
-};
-
 type satoshi = nat64;
 
 type millisatoshi_per_vbyte = nat64;
@@ -64,14 +40,7 @@ type get_block_headers_response = record {
   block_headers : vec block_header;
 };
 
-service : (network, opt principal) -> {
-    "get_balances" : () -> (Balances) query;
-    "get_preferred_network" : () -> (Network) query;
-    "set_preferred_network" : (Network) -> ();
-    "get_conversion_history" : () -> (vec ConversionRecord) query;
-    "convert_to_btc" : () -> (variant { Ok; Err : text });
-    "convert_to_ckbtc" : () -> (variant { Ok; Err : text });
-
+service : (network) -> {
   "get_p2pkh_address" : () -> (bitcoin_address);
 
   "get_p2tr_script_spend_address" : () -> (bitcoin_address);

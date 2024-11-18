@@ -1,5 +1,5 @@
 [package]
-name = "btc_ckbtc_wallet"
+name = "wallet_backend"
 version = "0.1.0"
 edition = "2021"
 
@@ -16,6 +16,7 @@ bitcoin = { version = "0.30.0", features = ["rand"] }
 ic-btc-interface = "0.2.2"
 hex = "0.4.3"
 sha2 = "0.10.7"
+basic_bitcoin = { path = "../../src/basic_bitcoin/src/basic_bitcoin" }
 
 [dev-dependencies]
 tokio = { version = "1.0", features = ["full"] }

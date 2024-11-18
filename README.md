@@ -32,11 +32,10 @@ cd btc-ckbtc-wallet
 npm install
 ```
 
-3. Start the local bitcoin replica:
+3. Start the local replica:
 
 ```bash
-./scripts/setup.bitcoin-node.sh
-./scripts/dfx.start-with-bitcoin.sh --clean
+dfx start --clean --background
 ```
 
 4. Deploy Internet Identity locally:
@@ -48,7 +47,13 @@ dfx deploy internet_identity
 5. Deploy the wallet:
 
 ```bash
-dfx deploy frontend
+dfx deploy
+```
+
+6. Start the development server:
+
+```bash
+npm run dev
 ```
 
 ## Development Setup

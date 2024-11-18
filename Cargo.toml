@@ -1,6 +1,7 @@
 [workspace]
 members = [
-    "src/backend"
+    "src/backend",
+    "src/basic_bitcoin"
 ]
 resolver = "2"
 

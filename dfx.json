@@ -10,6 +10,26 @@
 				}
 			}
 		},
+		"basic_bitcoin": {
+			"type": "custom",
+			"package": "basic_bitcoin",
+			"candid": "src/basic_bitcoin/src/basic_bitcoin/basic_bitcoin.did",
+			"wasm": "src/basic_bitcoin/target/wasm32-unknown-unknown/release/basic_bitcoin.wasm",
+			"build": "src/basic_bitcoin/src/basic_bitcoin/build.sh",
+			"metadata": [
+				{
+					"name": "candid:service"
+				}
+			]
+		},
+		"wallet_backend": {
+			"type": "rust",
+			"package": "wallet_backend",
+			"candid": "src/backend/wallet_backend.did",
+			"declarations": {
+				"node_compatibility": true
+			}
+		},
 		"frontend": {
 			"frontend": {
 				"entrypoint": "src/frontend/index.html"
@@ -22,6 +42,11 @@
 		"build": {
 			"args": "",
 			"packtool": ""
+		},
+		"bitcoin": {
+			"enabled": true,
+			"nodes": ["127.0.0.1:18444"],
+			"log_level": "info"
 		}
 	},
 	"networks": {

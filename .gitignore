@@ -18,3 +18,4 @@ dist/
 # Environment files
 .env
 .env.local
+project_instructions.md

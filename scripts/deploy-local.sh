@@ -16,8 +16,8 @@ if ! dfx canister --network=local id ckbtc_minter > /dev/null 2>&1; then
     dfx deploy ckbtc_minter
 fi
 
-# Deploy wallet backend
-dfx deploy wallet_backend --argument '(variant { testnet })'
+# Deploy wallet backend with regtest network for local development
+dfx deploy wallet_backend --argument '(variant { regtest })'
 
 # Deploy frontend assets
 dfx deploy frontend
