@@ -22,7 +22,7 @@ A wallet application that enables automatic conversion between Bitcoin (BTC) and
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/hersheylasers/ckbtc_swapper.git
 cd btc-ckbtc-wallet
 ```
 
@@ -32,31 +32,57 @@ cd btc-ckbtc-wallet
 npm install
 ```
 
-3. Start the local replica:
+3. Install Bitcoin node:
+
+First time:
 
 ```bash
-dfx start --clean --background
+./scripts/setup.bitcoin-node.sh
 ```
 
-4. Deploy Internet Identity locally:
+After first time, run with this argument occasionally:
 
 ```bash
-dfx deploy internet_identity
+./scripts/setup.bitcoin-node.sh --reset
 ```
 
-5. Deploy the wallet:
+4. Start the local dfx with bitcoin:
+
+```bash
+./scripts/dfx.start-with-bitcoin.sh
+```
+
+You can also run it by cleaning up the state:
+
+```bash
+./scripts/dfx.start-with-bitcoin.sh --clean
+```
+
+5. Deploy the canisters locally:
 
 ```bash
 dfx deploy
 ```
 
-6. Start the development server:
+Individual canister deployment
+
+(select regtest for local)
 
 ```bash
-npm run dev
+dfx deploy basic_bitcoin
 ```
 
-## Development Setup
+```bash
+dfx deploy internet_identity
+```
+
+```bash
+dfx deploy wallet_backend
+```
+
+```bash
+dfx deploy frontend
+```
 
 ### Environment Configuration
 
@@ -119,7 +145,7 @@ npm run test
 # Start local replica
 dfx start --clean --background
 
-# Deploy canisters
+# Deploy canisters locally
 dfx deploy
 ```
 
